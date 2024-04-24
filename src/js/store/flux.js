@@ -12,6 +12,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
+			],
+			naves: [
+				{
+					uid: "FIRST",
+					name: "white1",
+					initial: "white"
+				},
+				{
+					uid: "SECOND",
+					name: "white2",
+					initial: "white"
+				}
 			]
 		},
 		actions: {
@@ -23,6 +35,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
+				console.log("se cargo desde flux")
+				
+					fetch("https://www.swapi.tech/api/starships")
+					.then( (response)=> response.json() )
+					.then( (data)=> setStore({ naves: data.results }) )
+					
+				
 			},
 			changeColor: (index, color) => {
 				//get the store

@@ -1,4 +1,4 @@
-/* body {
+body {
     width: 1000px;
     margin: auto;
     background-image: url(https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700216097.jpg);
@@ -7,6 +7,8 @@
     background-attachment: fixed;
     min-height: 100vh;
     animation: moveBackground 20s linear infinite;
+    font-family: 'Star Wars', sans-serif;
+                                                
   }
   
   @keyframes moveBackground {
@@ -17,4 +19,17 @@
     50% {
       background-position: 0% 0%;
     }
-  } */
+  }
+  .navbar {
+    background-color: transparent !important;
+
+  }
+
+.starLogo {
+  width: 20%;
+}
+
+@import url('https://fonts.cdnfonts.com/css/star-wars');
+
+                                                                        font-family: 'Star Wars', sans-serif;
+                                                            
