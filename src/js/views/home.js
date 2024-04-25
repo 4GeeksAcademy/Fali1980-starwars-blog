@@ -20,7 +20,9 @@ export const Home = () => {
 				{starships.map( (item)=> <Nave key={item.uid} title={item.name} />)} */}
 
 			<h1 className="text-warning bg-dark">Naves desde FLUX</h1>
+			<div className="row flex-row flex-nowrap overflow-auto">
 				{store.naves.map( (item)=> <Nave key={item.uid} uid={item.uid} title={item.name} />)}
+			</div>
 		</div>
 	)
 };

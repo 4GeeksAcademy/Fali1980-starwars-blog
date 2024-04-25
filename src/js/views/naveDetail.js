@@ -24,7 +24,7 @@ export const NaveDetail = props => {
             <p>Model: {starship.name}</p>
 
 			<Link to="/">
-				<span className="btn btn-primary btn-lg" href="#" role="button">
+				<span className="btn btn-dark border border-3 border-warning btn-lg" href="#" role="button">
 					Back home
 				</span>
 			</Link>
