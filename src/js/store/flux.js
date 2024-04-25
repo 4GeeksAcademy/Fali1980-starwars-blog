@@ -24,6 +24,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					name: "white2",
 					initial: "white"
 				}
+			],
+			people: [
+				{
+					uid: "FIRST",
+					name: "white1",
+					initial: "white"
+				},
+				{
+					uid: "SECOND",
+					name: "white2",
+					initial: "white"
+				}
 			]
 		},
 		actions: {
@@ -32,17 +44,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-				console.log("se cargo desde flux")
-				
-					fetch("https://www.swapi.tech/api/starships")
-					.then( (response)=> response.json() )
-					.then( (data)=> setStore({ naves: data.results }) )
-					
-				
-			},
+				Promise.all([
+				  fetch("https://www.swapi.tech/api/starships").then(response => response.json()),
+				  fetch("https://www.swapi.tech/api/people").then(response => response.json())
+				]).then(([starshipsData, peopleData]) => {
+				  setStore({
+					naves: starshipsData.results,
+					personas: peopleData.results
+				  });
+				}).catch(error => {
+				  console.error('Error al cargar datos:', error);
+				});
+			  }
+			  ,
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

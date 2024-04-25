@@ -3,6 +3,7 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Nave } from "../component/nave";
 import { Context } from "../store/appContext";
+import { People } from "../component/people";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -15,13 +16,24 @@ export const Home = () => {
     },[])
 
 	return (
-		<div className="text-center mt-5">
-			{/* <h1 className="text-warning">Naves desde API</h1>
-				{starships.map( (item)=> <Nave key={item.uid} title={item.name} />)} */}
+		<div>
+			<div className="text-center mt-5">
+				{/* <h1 className="text-warning">Naves desde API</h1>
+					{starships.map( (item)=> <Nave key={item.uid} title={item.name} />)} */}
 
-			<h1 className="text-warning bg-dark">Naves desde FLUX</h1>
-			<div className="row flex-row flex-nowrap overflow-auto">
-				{store.naves.map( (item)=> <Nave key={item.uid} uid={item.uid} title={item.name} />)}
+				<h1 className="text-warning bg-dark">People desde FLUX</h1>
+				<div className="row flex-row flex-nowrap overflow-auto">
+					{store.people.map( (item)=> <People key={item.uid} uid={item.uid} title={item.name} />)}
+				</div>
+			</div>
+			<div className="text-center mt-5">
+				{/* <h1 className="text-warning">Naves desde API</h1>
+					{starships.map( (item)=> <Nave key={item.uid} title={item.name} />)} */}
+
+				<h1 className="text-warning bg-dark">Naves desde FLUX</h1>
+				<div className="row flex-row flex-nowrap overflow-auto">
+					{store.naves.map( (item)=> <Nave key={item.uid} uid={item.uid} title={item.name} />)}
+				</div>
 			</div>
 		</div>
 	)
