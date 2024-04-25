@@ -4,6 +4,7 @@ import "../../styles/home.css";
 import { Nave } from "../component/nave";
 import { Context } from "../store/appContext";
 import { People } from "../component/people";
+import { Planets } from "../component/planets";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -33,6 +34,15 @@ export const Home = () => {
 				<h1 className="text-warning bg-dark">Naves desde FLUX</h1>
 				<div className="row flex-row flex-nowrap overflow-auto">
 					{store.naves.map( (item)=> <Nave key={item.uid} uid={item.uid} title={item.name} />)}
+				</div>
+			</div>
+			<div className="text-center mt-5">
+				{/* <h1 className="text-warning">Naves desde API</h1>
+					{starships.map( (item)=> <Nave key={item.uid} title={item.name} />)} */}
+
+				<h1 className="text-warning bg-dark">Planets desde FLUX</h1>
+				<div className="row flex-row flex-nowrap overflow-auto">
+					{store.planets.map( (item)=> <Planets key={item.uid} uid={item.uid} title={item.name} />)}
 				</div>
 			</div>
 		</div>

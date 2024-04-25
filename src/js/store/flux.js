@@ -36,6 +36,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					name: "white2",
 					initial: "white"
 				}
+			],
+			planets: [
+				{
+					uid: "FIRST",
+					name: "white1",
+					initial: "white"
+				},
+				{
+					uid: "SECOND",
+					name: "white2",
+					initial: "white"
+				}
 			]
 		},
 		actions: {
@@ -46,11 +58,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadSomeData: () => {
 				Promise.all([
 				  fetch("https://www.swapi.tech/api/starships").then(response => response.json()),
-				  fetch("https://www.swapi.tech/api/people").then(response => response.json())
-				]).then(([starshipsData, peopleData]) => {
+				  fetch("https://www.swapi.tech/api/people").then(response => response.json()),
+				  fetch("https://www.swapi.tech/api/planets").then(response => response.json())
+				]).then(([starshipsData, peopleData, planetsData]) => {
 				  setStore({
 					naves: starshipsData.results,
-					personas: peopleData.results
+					people: peopleData.results,
+					planets: planetsData.results
+
 				  });
 				}).catch(error => {
 				  console.error('Error al cargar datos:', error);
