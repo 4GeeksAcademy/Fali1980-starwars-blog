@@ -16,13 +16,16 @@ export const NaveDetail = props => {
 	console.log(params)
 	return (
 		<div className="jumbotron bg-dark text-warning p-4">
-			<h1 className="display-4">This Nave: {params.nave_id}</h1>
-
+			<h1 className="display-4">{starship.name}</h1>
+			<img className="card-img-top border border-dark border-4 mt-1" src="https://cdn.shopify.com/s/files/1/0279/0234/5304/products/kfcwnjk8nplyqgigl9a9.jpg?v=1673425931&width=1946" alt="Card image cap"/>
 			<hr className="my-4" />
-            <p>Model: {starship.model}</p>
-            <p>Model: {starship.manufacturer}</p>
-            <p>Model: {starship.name}</p>
-
+			<p>Name: <span className="text-white">{starship.name}</span></p>
+            <p>Model: <span className="text-white">{starship.model}</span></p>
+            <p>Manufacturer: <span className="text-white">{starship.manufacturer}</span></p>
+            <p>Crew: <span className="text-white">{starship.crew}</span></p>
+			<p>Passengers: <span className="text-white">{starship.passengers}</span></p>
+			<p>ID: <span className="text-white">{params.nave_id}</span></p>
+			
 			<Link to="/">
 				<span className="btn btn-dark border border-3 border-warning btn-lg" href="#" role="button">
 					Back home

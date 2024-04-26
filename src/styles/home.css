@@ -6,7 +6,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
-    animation: moveBackground 20s linear infinite;
+    animation: moveBackground 30s linear infinite;
     font-family: 'Star Wars', sans-serif;
                                                 
   }
@@ -29,7 +29,6 @@ body {
   width: 20%;
 }
 
-@import url('https://fonts.cdnfonts.com/css/star-wars');
+@import url('https://fonts.cdnfonts.com/css/star-wars?styles=139840');
 
-                                                                        font-family: 'Star Wars', sans-serif;
                                                             

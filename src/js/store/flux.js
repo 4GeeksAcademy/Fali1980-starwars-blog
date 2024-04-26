@@ -14,46 +14,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			naves: [
-				{
-					uid: "FIRST",
-					name: "white1",
-					initial: "white"
-				},
-				{
-					uid: "SECOND",
-					name: "white2",
-					initial: "white"
-				}
+				
 			],
 			people: [
-				{
-					uid: "FIRST",
-					name: "white1",
-					initial: "white"
-				},
-				{
-					uid: "SECOND",
-					name: "white2",
-					initial: "white"
-				}
+				
 			],
 			planets: [
-				{
-					uid: "FIRST",
-					name: "white1",
-					initial: "white"
-				},
-				{
-					uid: "SECOND",
-					name: "white2",
-					initial: "white"
-				}
-			]
+				
+			],
+			favorites: "inicial desde flux",
+			misFavorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
+			},
+			changeFavorites: (titulo) => {
+				console.log("change favorites desde flux" + titulo)
+
+				setStore({ favorites: titulo });
+
+				const store = getStore();
+
+				if (store.misFavorites.includes(titulo)) {
+					console.log("Ya esta en favoritos")
+					setStore({
+						misFavorites: store.misFavorites.filter((favor)=>favor != titulo)
+					})
+				} else {
+					setStore({ misFavorites: [...store.misFavorites, titulo] })
+				}
+
+				;
 			},
 			loadSomeData: () => {
 				Promise.all([
